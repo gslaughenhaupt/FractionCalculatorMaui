@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FractionCalculatorMaui.MainPage"
+             xmlns:vm="clr-namespace:FractionCalculatorMaui.ViewModels"
+             x:DataType="vm:MainPageViewModel">
+
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="StartAndExpand">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout>
+                <Button x:Name="Add" Text="+" Margin="8,8,8,0" Command="{Binding AddCommand}"/>
+                <Button x:Name="Subtract" Text="-" Margin="8,8,8,0" Command="{Binding SubtractCommand}"/>
+                <Button x:Name="Multiply" Text="x" Margin="8,8,8,0" Command="{Binding MultiplyCommand}"/>
+                <Button x:Name="Divide" Text="/" Margin="8,8,8,0" Command="{Binding DivideCommand}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal" >
+                <Entry x:Name="txtLW" Text="{Binding LeftWhole, Mode=TwoWay}" VerticalOptions="Center"  BackgroundColor="YellowGreen" >
+
+                </Entry>
+                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                    <Entry x:Name="txtLT" Text="{Binding LeftTop, Mode=TwoWay}" BackgroundColor="Chartreuse"/>
+                    <Entry x:Name="txtLB" Text="{Binding LeftBottom, Mode=TwoWay}" BackgroundColor="DarkGreen"/>
+                </StackLayout>
+                </StackLayout>
+                <Label Text="{Binding LeftAsDecimal}"/>
+            </VerticalStackLayout>
+            <Button Grid.Column="2" x:Name="btnOperator" Text="{Binding Operator}" HeightRequest="64" WidthRequest="60" FontSize="Large" HorizontalOptions="Center" Margin="8,8,8,0" Background="Gray"/>
+            <VerticalStackLayout Grid.Column="3" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                <Entry x:Name="txtRW" Text="{Binding RightWhole, Mode=TwoWay}" BackgroundColor="Crimson" VerticalOptions="CenterAndExpand"/>
+                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                    <Entry x:Name="txtRT" Text="{Binding RightTop, Mode=TwoWay}" BackgroundColor="Fuchsia" />
+                    <Entry x:Name="txtRB" Text="{Binding RightBottom, Mode=TwoWay}" BackgroundColor="MediumPurple"/>
+                </StackLayout>
+            </StackLayout>
+                <Label Text="{Binding RightAsDecimal}"/>
+            </VerticalStackLayout>
+            <Button Grid.Column="4" x:Name="btnEquals"  Text="=" Margin="8,8,8,0" HorizontalOptions="Center" HeightRequest="64" WidthRequest="60" FontSize="Large" Command="{Binding CalculateCommand}"  />
+            <VerticalStackLayout Grid.Column="5" VerticalOptions="Center">
+                <StackLayout  Orientation="Horizontal" >
+                    <Entry x:Name="txtAW" Text="{Binding ResultWhole, Mode=TwoWay}" BackgroundColor="Yellow" VerticalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                        <Entry x:Name="txtAT" Text="{Binding ResultTop, Mode=TwoWay}" BackgroundColor="Red"/>
+                        <Entry x:Name="txtAB" Text="{Binding ResultBottom, Mode=TwoWay}" BackgroundColor="Aquamarine"/>
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="{Binding ResultAsDecimal}"/>
+            </VerticalStackLayout>
+        </Grid>
+        <!--<Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />-->
+
+        </VerticalStackLayout>
+
+
+</ContentPage>
